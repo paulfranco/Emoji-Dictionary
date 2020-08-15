@@ -10,16 +10,16 @@ import UIKit
 class EmojiTableViewController: UITableViewController {
     
     var emojis: [Emoji] = [
-        Emoji(symbol: ":)", name: "Grinning Face", description: "A typical smiley face", usage: "happiness"),
-        Emoji(symbol: ":)", name: "Confused Face", description: "A confused, puzzled face", usage: "Unsure what to think"),
-        Emoji(symbol: ":)", name: "Heart Eyes", description: "A smiley face with hearts for eyes", usage: "Love of something attractive"),
-        Emoji(symbol: ":)", name: "Police Officer", description: "A police officere with a blue cap and a gold badge", usage: "Person of authority"),
-        Emoji(symbol: ":)", name: "Grinning Face", description: "A typical smiley face", usage: "happiness"),
-        Emoji(symbol: ":)", name: "Grinning Face", description: "A typical smiley face", usage: "happiness"),
-        Emoji(symbol: ":)", name: "Grinning Face", description: "A typical smiley face", usage: "happiness"),
-        Emoji(symbol: ":)", name: "Grinning Face", description: "A typical smiley face", usage: "happiness"),
-        Emoji(symbol: ":)", name: "Grinning Face", description: "A typical smiley face", usage: "happiness"),
-        Emoji(symbol: ":)", name: "Grinning Face", description: "A typical smiley face", usage: "happiness")
+        Emoji(symbol: "\u{24}", name: "Dollar sign", description: "Black dollar sign", usage: "Dollar sign"),
+        Emoji(symbol: "\u{2665}", name: "Black heart", description: "Black heart", usage: "Black heart"),
+        Emoji(symbol: "\u{1F496}", name: "Pink Heart", description: "Pink sparkling heart", usage: "Pink sparkling heart"),
+        Emoji(symbol: "\u{e008}", name: "Camera", description: "Camera", usage: "photograpy"),
+        Emoji(symbol: "😂", name: "Smiling crying face", description: "A smily face with tears", usage: "so funny i am crying"),
+        Emoji(symbol: "😝", name: "Grinning Face", description: "A typical smiley face", usage: "happiness"),
+        Emoji(symbol: "\u{1F60D}", name: "Heart Eyes", description: "A face with heart for eyes", usage: "I am in love"),
+        Emoji(symbol: "\u{1F60F}", name: "Smiking Face", description: "A smirking face", usage: "Smirking Face"),
+        Emoji(symbol: "\u{1F620}", name: "Angry Face", description: "Angry face", usage: "Angry Face"),
+        Emoji(symbol: "\u{1F621}", name: "Red Angry Face", description: "Red Angry Face", usage: "Extremely Angry face")
     ]
 
     override func viewDidLoad() {
@@ -57,6 +57,11 @@ class EmojiTableViewController: UITableViewController {
         cell.detailTextLabel?.text = emoji.description
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let emoji = emojis[indexPath.row]
+        print("\(emoji.symbol) \(indexPath)")
     }
     
 
