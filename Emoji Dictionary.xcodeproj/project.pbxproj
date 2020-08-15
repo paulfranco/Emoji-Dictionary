@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		034F017824E7B6C700A92262 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034F017724E7B6C700A92262 /* AppDelegate.swift */; };
 		034F017A24E7B6C700A92262 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034F017924E7B6C700A92262 /* SceneDelegate.swift */; };
-		034F017C24E7B6C700A92262 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034F017B24E7B6C700A92262 /* ViewController.swift */; };
 		034F017F24E7B6C700A92262 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 034F017D24E7B6C700A92262 /* Main.storyboard */; };
 		034F018124E7B6C800A92262 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 034F018024E7B6C800A92262 /* Assets.xcassets */; };
 		034F018424E7B6C800A92262 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 034F018224E7B6C800A92262 /* LaunchScreen.storyboard */; };
+		034F018C24E7B6E700A92262 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034F018B24E7B6E700A92262 /* Emoji.swift */; };
+		034F018E24E7B83E00A92262 /* EmojiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034F018D24E7B83E00A92262 /* EmojiTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		034F017424E7B6C600A92262 /* Emoji Dictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Emoji Dictionary.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		034F017724E7B6C700A92262 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		034F017924E7B6C700A92262 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		034F017B24E7B6C700A92262 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		034F017E24E7B6C700A92262 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		034F018024E7B6C800A92262 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		034F018324E7B6C800A92262 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		034F018524E7B6C800A92262 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		034F018B24E7B6E700A92262 /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
+		034F018D24E7B83E00A92262 /* EmojiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +60,12 @@
 			children = (
 				034F017724E7B6C700A92262 /* AppDelegate.swift */,
 				034F017924E7B6C700A92262 /* SceneDelegate.swift */,
-				034F017B24E7B6C700A92262 /* ViewController.swift */,
 				034F017D24E7B6C700A92262 /* Main.storyboard */,
 				034F018024E7B6C800A92262 /* Assets.xcassets */,
 				034F018224E7B6C800A92262 /* LaunchScreen.storyboard */,
 				034F018524E7B6C800A92262 /* Info.plist */,
+				034F018B24E7B6E700A92262 /* Emoji.swift */,
+				034F018D24E7B83E00A92262 /* EmojiTableViewController.swift */,
 			);
 			path = "Emoji Dictionary";
 			sourceTree = "<group>";
@@ -137,8 +140,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				034F017C24E7B6C700A92262 /* ViewController.swift in Sources */,
+				034F018E24E7B83E00A92262 /* EmojiTableViewController.swift in Sources */,
 				034F017824E7B6C700A92262 /* AppDelegate.swift in Sources */,
+				034F018C24E7B6E700A92262 /* Emoji.swift in Sources */,
 				034F017A24E7B6C700A92262 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
