@@ -24,6 +24,7 @@ class EmojiTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.leftBarButtonItem = editButtonItem
         
         tableView.cellLayoutMarginsFollowReadableWidth = true
 
@@ -55,6 +56,8 @@ class EmojiTableViewController: UITableViewController {
         let emoji = emojis[indexPath.row]
         cell.textLabel?.text = "\(emoji.symbol) - \(emoji.name)"
         cell.detailTextLabel?.text = emoji.description
+        
+        cell.showsReorderControl = true
 
         return cell
     }
@@ -63,6 +66,9 @@ class EmojiTableViewController: UITableViewController {
         let emoji = emojis[indexPath.row]
         print("\(emoji.symbol) \(indexPath)")
     }
+    
+    
+
     
 
     /*
@@ -85,12 +91,18 @@ class EmojiTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        let movedEmoji = emojis.remove(at: fromIndexPath.row)
+        emojis.insert(movedEmoji, at: to.row)
+        tableView.reloadData()
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+    
 
     /*
     // Override to support conditional rearranging of the table view.
@@ -109,5 +121,11 @@ class EmojiTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func editButtonTapped(_sender: UIBarButtonItem) {
+        let tableViewEditingMode = tableView.isEditing
+        
+        tableView.setEditing(!tableViewEditingMode, animated: true)
+    }
 
 }
