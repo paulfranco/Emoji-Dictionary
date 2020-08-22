@@ -63,7 +63,7 @@
                                     <outlet property="descriptionLabel" destination="UsS-JE-5u9" id="Jjc-zf-xoa"/>
                                     <outlet property="nameLabel" destination="KWR-gy-aBo" id="v5W-Kg-Eux"/>
                                     <outlet property="symbolLabel" destination="TU4-hd-tch" id="OK0-bC-B31"/>
-                                    <segue destination="guh-fQ-N1U" kind="presentation" trigger="accessoryAction" id="y7d-aQ-m97"/>
+                                    <segue destination="guh-fQ-N1U" kind="presentation" identifier="EditEmoji" trigger="accessoryAction" modalPresentationStyle="fullScreen" id="y7d-aQ-m97"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -75,21 +75,21 @@
                     <navigationItem key="navigationItem" title="Root View Controller" id="zhx-Jo-MVL">
                         <barButtonItem key="rightBarButtonItem" title="Add" id="SrQ-wC-6vS">
                             <connections>
-                                <segue destination="guh-fQ-N1U" kind="presentation" identifier="EditEmoji" id="lAD-VL-yDl"/>
+                                <segue destination="guh-fQ-N1U" kind="presentation" identifier="Save" modalPresentationStyle="fullScreen" id="lAD-VL-yDl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ej-J1-Ujp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="624.63768115942037" y="103.79464285714285"/>
+            <point key="canvasLocation" x="457" y="104"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="ndV-Sq-xMo">
             <objects>
-                <tableViewController id="ZgF-da-Zub" sceneMemberID="viewController">
+                <tableViewController id="ZgF-da-Zub" customClass="AddEditEmojiTableViewController" customModule="Emoji_Dictionary" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="L9d-c6-8s1">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <sections>
@@ -106,6 +106,9 @@
                                                     <rect key="frame" x="5" y="5" width="404" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textEditingChanged:" destination="ZgF-da-Zub" eventType="editingChanged" id="geO-q7-tu1"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -131,6 +134,9 @@
                                                     <rect key="frame" x="5" y="5" width="404" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textEditingChanged:" destination="ZgF-da-Zub" eventType="editingChanged" id="hdL-9W-EZm"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -156,6 +162,9 @@
                                                     <rect key="frame" x="5" y="5" width="404" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textEditingChanged:" destination="ZgF-da-Zub" eventType="editingChanged" id="J20-dw-W8M"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -181,6 +190,9 @@
                                                     <rect key="frame" x="5" y="5" width="404" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textEditingChanged:" destination="ZgF-da-Zub" eventType="editingChanged" id="Uod-vA-EN0"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -199,18 +211,37 @@
                             <outlet property="delegate" destination="ZgF-da-Zub" id="wbc-k9-nSK"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="mOQ-sT-e8E"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="mOQ-sT-e8E">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="DLb-jx-wur">
+                            <connections>
+                                <segue destination="xMW-SY-RpX" kind="unwind" unwindAction="unwindToEmojiTableViewControllerWithSegue:" id="sro-Ic-t1C"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="TwE-sI-FQl">
+                            <connections>
+                                <segue destination="xMW-SY-RpX" kind="unwind" identifier="saveUnwind" unwindAction="unwindToEmojiTableViewControllerWithSegue:" id="qCc-TQ-f1H"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="descriptionTextField" destination="w6p-Zx-4sb" id="7pK-Pd-RrZ"/>
+                        <outlet property="nameTextField" destination="Cqq-7l-vUr" id="XEH-cq-4bH"/>
+                        <outlet property="saveButton" destination="TwE-sI-FQl" id="I4k-rq-C7c"/>
+                        <outlet property="symbolTextField" destination="Kym-5T-7Cx" id="Mgv-uM-oh8"/>
+                        <outlet property="usageTextField" destination="vll-84-xJX" id="zAd-J6-PgZ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AFU-T7-d32" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="xMW-SY-RpX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2236" y="104"/>
+            <point key="canvasLocation" x="1994" y="104"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c3x-nb-t0Z">
             <objects>
                 <navigationController id="guh-fQ-N1U" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qod-Bp-26O">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -219,7 +250,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26M-El-8Ij" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1346" y="104"/>
+            <point key="canvasLocation" x="1178" y="104"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="POu-kV-4Ul">
@@ -239,7 +270,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lAD-VL-yDl"/>
+        <segue reference="y7d-aQ-m97"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
