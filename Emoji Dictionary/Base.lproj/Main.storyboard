@@ -59,6 +59,11 @@
                                         <constraint firstItem="kic-Hy-2zM" firstAttribute="top" secondItem="btr-9P-8gF" secondAttribute="topMargin" id="Z7Q-LJ-FXS"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="UsS-JE-5u9" id="Jjc-zf-xoa"/>
+                                    <outlet property="nameLabel" destination="KWR-gy-aBo" id="v5W-Kg-Eux"/>
+                                    <outlet property="symbolLabel" destination="TU4-hd-tch" id="OK0-bC-B31"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
